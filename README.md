@@ -21,28 +21,39 @@ docker run --name mynginx -p 80:80 -d nginx
 
 - add an inbound rule allowing HTTP
 <img src="/pictures/nginx.png" title="nginx container"  width="500">
-```
 
 - you are now able to connect to the nginx server hosted on the VM
-<img src="/pictures/nginx2.png" title="nginx container"  width="500">
+<img src="/pictures/nginx2.png" title="nginx container"  width="900">
 
 
-## Working with the container
+## Docker on Visual Studio
+
+- create *ASP.NET Core Web App* and add *Docker Support*. Choose *Linux* as targer OS
+
+- start the application as a container
+
+- on the docker desktop, see your container running
+<img src="/pictures/container.png" title="container visual studio"  width="900">
 
 
-## Creating, publishing and creating a container from the image
+## Publish an image to Docker Hub
 
-- run the below command
+- publish the app
+<img src="/pictures/docker_hub.png" title="publish image to docker hub"  width="900">
+<img src="/pictures/docker_hub2.png" title="publish image to docker hub"  width="900">
+
+- the image is now available on your *Docker Hub*
+<img src="/pictures/docker_hub3.png" title="publish image to docker hub"  width="900">
+
+
+
+## Running the container on the linux VM
+
+- on the VM run
 ```
-docker build -t myapp .
-docker login
-docker logout
-docker tag myapp shakinstev/myapp:v1
-docker push shakinstev/myapp:v1
+docker pull dockeralexei/alexeidockerapp:latest
+docker run --name alexeiappcontainer -d -p 80:80 dockeralexei/alexeidockerapp:latest
 ```
 
-
-
-
-
-https://github.com/cloudxeus/Azure-Dev/tree/main/AZ-204%20-%20Develop%20Azure%20Compute%20Solutions%20-%20Docker
+- you should now be able to see your app running on a container hoster on the linux VM
+<img src="/pictures/docker_hub4.png" title="publish image to docker hub"  width="900">
