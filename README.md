@@ -184,3 +184,12 @@ INSERT INTO Course(CourseID,CourseName,Rating) VALUES
 - the app is now working and retrieving data from the SQL database hosted on the docker container
 <img src="/pictures/docker_sql.png" title="SQL database hosted on the docker container"  width="900">
 
+### Downloading blobs to volumes
+
+- run
+```
+docker volume create blobvolume
+docker volume ls
+docker container run -d --mount source=blobvolume,target=/app shakinstev/blobproject
+```
+
