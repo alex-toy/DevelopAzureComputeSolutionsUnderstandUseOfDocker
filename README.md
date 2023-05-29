@@ -129,7 +129,7 @@ docker push dockeralexei/mydockerapp:v1
 
 ### Mounting Volumes
 
-- on ubuntu, run the below commands
+- on ubuntu command prompt, run the below commands
 ```
 docker volume create myvolume
 docker volume ls
@@ -155,3 +155,28 @@ You should see again the sample.txt previouly created.
 
 ### Creating a MySQL container
 
+- on ubuntu command prompt, run the below commands
+```
+docker run --name=mysql-instance -p 3307:3306 --restart on-failure -d -e MYSQL_ROOT_PASSWORD=Azure123 mysql
+docker ps -a
+docker exec -it mysql-instance mysql -uroot -p
+docker container rm e0
+docker logs mysql-instance
+```
+
+- insert data into the sql database
+```
+CREATE DATABASE appdb;
+USE appdb;
+CREATE TABLE Course
+(
+   CourseID int,
+   CourseName varchar(1000),
+   Rating numeric(2,1)
+);
+
+INSERT INTO Course(CourseID,CourseName,Rating) VALUES
+(1,'AZ-204 Developing Azure solutions',4.5),
+(2,'AZ-303 Architecting Azure solutions',4.6),
+(3,'DP-203 Azure Data Engineer',4.7);
+```
