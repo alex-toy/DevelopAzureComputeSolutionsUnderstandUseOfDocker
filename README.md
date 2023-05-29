@@ -126,5 +126,32 @@ docker push dockeralexei/mydockerapp:v1
 <img src="/pictures/container_registry6.png" title="container registry"  width="500">
 
 - finally you should see the new version available on the web
-<img src="/pictures/container_registry7.png" title="container registry"  width="900">
+
+### Mounting Volumes
+
+- on ubuntu, run the below commands
+```
+docker volume create myvolume
+docker volume ls
+docker container run -dit --mount source=myvolume,target=/app ubuntu
+docker ps
+docker attach <ubuntucontainerid>
+```
+
+- inside the ubuntu container
+```
+cd /app
+echo "this is a container" > sample.txt
+exit
+```
+
+- back to ubuntu
+```
+docker container run -dit --mount source=myvolume,target=/app ubuntu
+docker ps
+docker attach <ubuntucontainerid>
+```
+You should see again the sample.txt previouly created.
+
+### Creating a MySQL container
 
