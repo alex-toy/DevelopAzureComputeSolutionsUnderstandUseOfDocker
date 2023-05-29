@@ -81,7 +81,7 @@ docker push dockeralexei/mydockerapp:v1
 ```
 
 - in the end, you should see your image hosted on *dockerhub*
-<img src="/pictures/publish_local2.png" title="publish container to dockerhub"  width="500">
+<img src="/pictures/publish_local2.png" title="publish container to dockerhub"  width="900">
 
 ### Publish changes to an image
 
@@ -108,3 +108,23 @@ docker push dockeralexei/mydockerapp:v1
 
 - finally, you should see the new versio of the app available on the web
 <img src="/pictures/modif_image2.png" title="publish changes to an image"  width="900">
+
+### Azure Container Registry
+
+- on the azure portal, create a *container registry*
+<img src="/pictures/container_registry.png" title="container registry"  width="500">
+
+- on visual studio, create a new publish profile and publish
+<img src="/pictures/container_registry2.png" title="container registry"  width="500">
+<img src="/pictures/container_registry3.png" title="container registry"  width="500">
+<img src="/pictures/container_registry4.png" title="container registry"  width="500">
+
+- you should see your image created on the azure *Container Registry*
+<img src="/pictures/container_registry5.png" title="container registry"  width="900">
+
+- create a new *Container Instance* and use the image just pushed to the *Container Registry*
+<img src="/pictures/container_registry6.png" title="container registry"  width="500">
+
+- finally you should see the new version available on the web
+<img src="/pictures/container_registry7.png" title="container registry"  width="900">
+
