@@ -18,7 +18,6 @@ namespace SqlApp.Controllers
 
         public IActionResult Index()
         {
-            // Use the configuration class to get the connection string
             string _connection_string = _configuration.GetConnectionString("SQLConnection");
             IEnumerable<Course> _course_list = _course_service.GetCourses(_connection_string);
             return View(_course_list);

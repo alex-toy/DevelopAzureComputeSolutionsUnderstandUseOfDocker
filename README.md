@@ -180,3 +180,7 @@ INSERT INTO Course(CourseID,CourseName,Rating) VALUES
 (2,'AZ-303 Architecting Azure solutions',4.6),
 (3,'DP-203 Azure Data Engineer',4.7);
 ```
+
+- the app is now working and retrieving data from the SQL database hosted on the docker container
+<img src="/pictures/docker_sql.png" title="SQL database hosted on the docker container"  width="900">
+

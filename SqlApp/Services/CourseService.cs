@@ -1,26 +1,26 @@
-﻿using SqlApp.Models;
-using System.Data.SqlClient;
+﻿using MySql.Data.MySqlClient;
+using SqlApp.Models;
 
 namespace SqlApp.Services
 {
     public class CourseService
     {
-        private SqlConnection GetConnection(string _connection_string)
+        private MySqlConnection GetConnection(string _connection_string)
         {
-            return new SqlConnection(_connection_string);
+            return new MySqlConnection(_connection_string);
         }
 
         public IEnumerable<Course> GetCourses(string _connection_string)
         {
             List<Course> _lst = new List<Course>();
             string _statement = "SELECT CourseID,CourseName,rating from Course";
-            SqlConnection _connection = GetConnection(_connection_string);
+            MySqlConnection _connection = GetConnection(_connection_string);
 
             _connection.Open();
 
-            SqlCommand _sqlcommand = new SqlCommand(_statement, _connection);
+            MySqlCommand _sqlcommand = new MySqlCommand(_statement, _connection);
 
-            using (SqlDataReader _reader = _sqlcommand.ExecuteReader())
+            using (MySqlDataReader _reader = _sqlcommand.ExecuteReader())
             {
                 while (_reader.Read())
                 {
