@@ -1,7 +1,7 @@
 ﻿using Azure.Storage.Blobs;
 using System;
 
-namespace BlobServiceApp
+namespace BlobService
 {
     internal class Program
     {

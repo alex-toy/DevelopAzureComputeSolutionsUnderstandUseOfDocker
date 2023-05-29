@@ -186,10 +186,35 @@ INSERT INTO Course(CourseID,CourseName,Rating) VALUES
 
 ### Downloading blobs to volumes
 
-- run
+- publish BlobService app
+<img src="/pictures/volumes.png" title="Downloading blobs to volumes"  width="900">
+
+
+- on the ubuntu command prompt, run
 ```
 docker volume create blobvolume
 docker volume ls
-docker container run -d --mount source=blobvolume,target=/app shakinstev/blobproject
+docker container run -d --mount source=blobvolume,target=/app dockeralexei/blobservice:latest
 ```
 
+- you should see the volumes
+
+### Docker compose
+
+- in the Ubuntu command prompt, cd into the folder containing the docker-compose.yml file
+```
+cd /mnt/c/source/.../path/to/file
+```
+
+- run
+```
+docker-compose up
+```
+
+- on another Ubuntu session, connect to mysql
+```
+docker exec -it developazurecomputesolutionsunderstanduseofdocker-db-1 bash
+mysql -u user -p
+```
+
+- use the database
